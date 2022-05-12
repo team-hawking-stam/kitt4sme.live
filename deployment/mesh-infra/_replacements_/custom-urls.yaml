@@ -8,7 +8,7 @@ data:
   # A URL pointing to a custom Git online repo from where to source the
   # Kustomization to build the cluster. Overrides the default of
   # - https://github.com/c0c0n3/kitt4sme.live
-  argocd.repo: https://github.com/your/kitt4sme
+  argocd.repo: https://github.com/team-hawking-stam/kitt4sme.live
 
   # URL to the Argo CD Web UI. You should only replace the host part
   # and/or the scheme (http, https) but keep the path (/argocd) unless
