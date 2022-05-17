@@ -35,6 +35,8 @@ spec:
       - name: keycloak
         image: quay.io/keycloak/keycloak:16.1.0
         env:
+        - name: DB_VENDOR
+          value: "h2"
         - name: PROXY_ADDRESS_FORWARDING
           value: "true"
         # NOTE this initial admin can only be used on first boot.
