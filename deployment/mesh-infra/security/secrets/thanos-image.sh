@@ -22,7 +22,7 @@ GITLAB_USR="thanos-gitlab-token"
 GITLAB_TOKEN=$1
 
 kubectl create secret docker-registry thanos-image \
-        --docker-server="https://gitlab.com" \
+        --docker-server="registry.gitlab.com" \
         --docker-username="${GITLAB_USR}" \
         --docker-password="${GITLAB_TOKEN}" \
         -o yaml --dry-run='client' | \
