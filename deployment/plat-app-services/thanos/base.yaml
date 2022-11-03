@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: thanos
+  name: thanos
+spec:
+  ports:
+  - name: http
+    port: 8000
+    protocol: TCP
+    targetPort: 8000
+  selector:
+    app: thanos
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: thanos
+  name: thanos
+  annotations:
+    # Tell Reloader to bounce the service whenever the secret changes.
+    secret.reloader.stakater.com/reload: "thanos-image"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: thanos
+  template:
+    metadata:
+      labels:
+        app: thanos
+    spec:
+      imagePullSecrets:
+        - name: thanos-image
+      containers:
+        - image: "registry.gitlab.com/stamtech/industrial-automation-solutions/thanos:latest"
+          imagePullPolicy: IfNotPresent
+          name: thanos
+          ports:
+          - containerPort: 8000
+            name: http
+          env:
+          - name: "ORION_BASE_URL"
+            value: "http://orion:1026"
