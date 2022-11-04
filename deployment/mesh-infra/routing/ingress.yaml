@@ -77,6 +77,14 @@ spec:
         host: dazzler.default.svc.cluster.local
         port:
           number: 8000
+  - match:  # NOTE (3)
+    - uri:
+        prefix: /grafana
+    route:
+    - destination:
+        host: grafana.default.svc.cluster.local
+        port:
+          number: 3000
 
 # NOTE
 # 1. URL rewriting. We use overlapping prefixes to make sure `/x`, `/x/`
