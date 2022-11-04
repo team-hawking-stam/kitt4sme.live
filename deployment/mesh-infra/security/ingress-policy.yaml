@@ -29,4 +29,5 @@ spec:
         - "/orion/*"
         - "/orion/version"
         - "/quantumleap/version"
+        - "/grafana"
         - "/grafana/*"
