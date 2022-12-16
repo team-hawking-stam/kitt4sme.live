@@ -2,6 +2,7 @@ apiVersion: networking.gke.io/v1
 kind: ManagedCertificate
 metadata:
   name: thanos-ssl-cert
+  namespace: istio-system
 spec:
   domains:
     - thanos.stamtech.dev
