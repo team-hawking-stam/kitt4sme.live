@@ -80,6 +80,8 @@ spec:
   - match:  # NOTE (3)
     - uri:
         prefix: /grafana
+    rewrite:
+      uri: /
     route:
     - destination:
         host: grafana.default.svc.cluster.local
