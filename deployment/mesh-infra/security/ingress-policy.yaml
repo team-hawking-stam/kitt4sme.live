@@ -28,6 +28,7 @@ spec:
         - "/dazzler/*"
         - "/orion/*"
         - "/orion/version"
+        - "/quantumleap/*"
         - "/quantumleap/version"
         - "/grafana"
         - "/grafana/*"
